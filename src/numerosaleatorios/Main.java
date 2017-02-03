@@ -2,8 +2,8 @@
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
- */
-package numerosaleatorios;
+ *
+package src.numerosaleatorios;
 
 import LoaderFiles.LoadConf;
 import LoaderFiles.LoadSementes;
@@ -15,9 +15,9 @@ import java.util.Set;
 /**
  *
  * @author pedro
- */
+ *
 public class Main {
-    
+
     public static void main(String[] args) throws IOException {
         System.out.println("Gerador de Número Aleatórios a começar ....");
         List<String> configuracao = new LoadConf("conf.txt").loadConfig();
@@ -36,4 +36,4 @@ public class Main {
         }
     }
     
-}
+}*/

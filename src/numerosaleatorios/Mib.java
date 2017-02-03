@@ -1,24 +1,14 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
-package numerosaleatorios;
+package src.numerosaleatorios;
 
-import org.snmp4j.smi.*;
-import org.snmp4j.mp.SnmpConstants;
 import org.snmp4j.agent.*;
 import org.snmp4j.agent.mo.*;
-import org.snmp4j.agent.mo.snmp.*;
-import org.snmp4j.agent.mo.snmp.smi.*;
-import org.snmp4j.agent.request.*;
-import org.snmp4j.log.LogFactory;
+import org.snmp4j.agent.mo.snmp.DisplayStringScalar;
+import org.snmp4j.agent.request.SubRequest;
 import org.snmp4j.log.LogAdapter;
-import org.snmp4j.agent.mo.snmp.tc.*;
-/**
- *
- * @author pedro
- */
+import org.snmp4j.log.LogFactory;
+import org.snmp4j.mp.SnmpConstants;
+import org.snmp4j.smi.*;
+
 public class Mib implements MOGroup{
     private static final LogAdapter LOGGER = LogFactory.getLogger(Mib.class);
 
@@ -183,6 +173,7 @@ public class Mib implements MOGroup{
   public MOScalar<OctetString> getUnpredictableAuthorization() {
     return unpredictableAuthorization;
   }
+
 // SETS NAO SEI SE POSSO POR ISTO
     public void setUnpredictableDigitos(MOScalar<Integer32> unpredictableDigitos) {
         this.unpredictableDigitos = unpredictableDigitos;
