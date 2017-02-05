@@ -64,10 +64,10 @@ public class Agent extends BaseAgent
 
         try
         {
-            this.registerManagedObjects(refresh);
-            this.registerManagedObjects(linhas);
-            this.registerManagedObjects(n_elems);
-            this.registerManagedObjects(reset);
+            this.registerManagedObjects(refresh, this.community);
+            this.registerManagedObjects(linhas, this.community);
+            this.registerManagedObjects(n_elems, this.community);
+            this.registerManagedObjects(reset, this.community);
         }
         catch (DuplicateRegistrationException e)
         {
@@ -89,8 +89,8 @@ public class Agent extends BaseAgent
 
 
 
-    protected void registerManagedObjects(ManagedObject m) throws DuplicateRegistrationException {
-        server.register(m, new OctetString("public"));
+    protected void registerManagedObjects(ManagedObject m, String com) throws DuplicateRegistrationException {
+        server.register(m, new OctetString( com));
     }
 
     @Override
