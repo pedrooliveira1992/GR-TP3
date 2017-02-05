@@ -174,23 +174,6 @@ public class Mib implements MOGroup{
     return unpredictableAuthorization;
   }
 
-// SETS NAO SEI SE POSSO POR ISTO
-    public void setUnpredictableDigitos(MOScalar<Integer32> unpredictableDigitos) {
-        this.unpredictableDigitos = unpredictableDigitos;
-    }
-
-    public void setUnpredictableRefresh(MOScalar<Integer32> unpredictableRefresh) {
-        this.unpredictableRefresh = unpredictableRefresh;
-    }
-
-    public void setUnpredictableEntradas(MOScalar<Integer32> unpredictableEntradas) {
-        this.unpredictableEntradas = unpredictableEntradas;
-    }
-    
-    
-    
-
-
   public MOTable<UnpredEntryRow,MOColumn,MOTableModel<UnpredEntryRow>> getUnpredEntry() {
     return unpredEntry;
   }
