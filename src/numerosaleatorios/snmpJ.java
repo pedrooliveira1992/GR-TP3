@@ -1,5 +1,6 @@
-package src.numerosaleatorios;
+package numerosaleatorios;
 
+import org.snmp4j.agent.DuplicateRegistrationException;
 import org.snmp4j.agent.mo.MOScalar;
 import org.snmp4j.smi.Integer32;
 import org.snmp4j.smi.OID;
@@ -16,33 +17,27 @@ import java.util.ArrayList;
  */
 public class snmpJ
 {
-    public snmpJ()
-    {}
+    public static void main(String[] args) throws DuplicateRegistrationException {
+        final OID oidUminhoGrMib = new OID(new int[] { 1,3,6,1,3,4 });
 
-    public Variable sup()
-    {
-        return new Integer32(1);
-    }
-
-    public static void main(String[] args)
-    {
-        if (args == null)
+        if (args.length < -1)
         {
             System.out.println("No arguments provided");
             return;
         }
-
-        Mib mib = new Mib();
+        Agent agent;
         try
         {
-            Agent agent = initialize_agent("conf.txt", args[1]);
+            agent = initialize_agent("conf.txt", "asdasdasd");
+            agent.start();
+            agent.unregisterManagedObjects(agent.getSnmpv2MIB());
+            agent.registerManagedObject(MOScalarMaker.CR_RO(oidUminhoGrMib,"MySystemDescr"));
+
         }
         catch (IOException e)
         {
             e.printStackTrace();
         }
-        Object o = 2;
-
 
 
 
@@ -72,7 +67,7 @@ public class snmpJ
         {
             params.close();
         }
-        Agent a = new Agent("localhost/"+args.get(0), args.get(1), Float.valueOf(args.get(2)), Integer.parseInt(args.get(3)), Integer.parseInt(args.get(4)), args.get(5), reset_pwd);
+        Agent a = new Agent("localhost:"+args.get(0), args.get(1), Integer.parseInt(args.get(2)), Integer.parseInt(args.get(3)), Integer.parseInt(args.get(4)), args.get(5), reset_pwd);
         return a;
     }
 

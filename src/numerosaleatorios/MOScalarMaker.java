@@ -1,4 +1,4 @@
-package src.numerosaleatorios;
+package numerosaleatorios;
 
 import org.snmp4j.agent.mo.MOAccessImpl;
 import org.snmp4j.agent.mo.MOScalar;
